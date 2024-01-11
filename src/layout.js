@@ -1,6 +1,5 @@
 import React from "react";
-import Header from "./components/header";
-import Sidebar from "./components/sidebar";
+import AdminLayout from "./components/adminLayout";
 
 const Layout = ({ children }) => {
   const currentPath = window.location.pathname;
@@ -10,11 +9,9 @@ const Layout = ({ children }) => {
     <div>
       {adminPath && (
         <>
-          <Header />
-          <Sidebar />
+          <AdminLayout children={children} />
         </>
       )}
-      {children}
     </div>
   );
 };

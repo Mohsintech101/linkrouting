@@ -1,10 +1,15 @@
+import { Box } from '@chakra-ui/react'
 import React from 'react'
 
 const Header = () => {
   return (
-    <div style={{height: "80px" ,color: "green" , background: "yellow", marginLeft: "150px"}}>
-      Header Section
-    </div>
+    <Box
+        height={"100%"}
+        bg={"yellow"}
+        color={"green"}
+    >
+      Header Section Hello
+    </Box>
   )
 }
 
