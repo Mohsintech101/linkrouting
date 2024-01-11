@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./home";
+import AdminPage from "./admin";
+import Header from "./components/header";
+import Profile from "./admin/profile";
+import Contacts from "./admin/contact";
+import Sidebar from "./components/sidebar";
 
 function App() {
+  const currentPath = window.location.pathname
+  const adminPath = currentPath.includes("admin")
+  console.log("pathname:",adminPath);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      {
+        adminPath && <>
+          <Header/>
+          <Sidebar/>
+        </>
+      }
+      <Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/admin" element={<AdminPage/>} />
+      <Route path="/admin/profile" element={<Profile/>} />
+      <Route path="/admin/contact" element={<Contacts/>} />
+    </Routes>
+    </BrowserRouter>
   );
 }
 
